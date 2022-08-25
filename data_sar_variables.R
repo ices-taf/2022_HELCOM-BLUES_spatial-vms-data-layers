@@ -14,6 +14,7 @@ library(sfdSAR)
 
 mkdir("data")
 
+(load("data/vms_subsets.Rdata"))
 
 # get sar variables
 gear_widths <- icesVMS::get_benthis_parameters() %>% select(-id)
@@ -30,6 +31,12 @@ vms$gearWidth_model <-
   predict_gear_width(vms$gearModel, vms$gearCoefficient, vms)
 
 # do the fillin for gear width:
+
+##########################
+###### QUICK FIX #########
+##########################
+vms$avgGearWidth <- NA
+
 # select provided average gear width, then modelled gear with, then benthis
 # average if no kw or aol supplied
 vms$gearWidth_filled <-
