@@ -9,7 +9,7 @@ mkdir("data")
 metier_lookup_old <- get_metier_lookup() %>% tibble()
 
 # add in RCG update
-# add update from josefine
+# add update
 update <- read.csv(taf.boot.path("initial", "data", "gears_not_assigned_jsv.csv"))
 
 update <-

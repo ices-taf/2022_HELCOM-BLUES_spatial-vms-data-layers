@@ -49,3 +49,5 @@ vms$gear_group_b2 <- replace(vms$benthisMetiers, vms$benthisMetiers %in% c("TBB_
 table(vms$gear_group_a)
 table(vms$gear_group_b1)
 table(vms$gear_group_b2)
+
+save(vms, file = "data/vms_subsets.Rdata")
