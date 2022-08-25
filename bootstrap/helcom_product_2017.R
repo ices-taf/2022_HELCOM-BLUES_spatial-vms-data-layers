@@ -20,23 +20,32 @@
 
 #' @tafSource script
 
-  
+# get data product zip from ICES library
+
 library(httr)
 library(glue)
 
-# get data product zip from ICES library
-doi <- "10.17895/ices.data.4684"
-resp <- GET(glue("https://api.figshare.com/v2/articles?doi={doi}"))
-article <- content(resp, simplifyVector = TRUE)
-article_id <- article$id
+downloadFromFigshare <- function(doi) {
+  
+  resp <- GET(glue("https://api.figshare.com/v2/articles?doi={doi}"))
+  article <- content(resp, simplifyVector = TRUE)
+  article_id <- article$id
 
-files <-
-  content(
-    GET(glue("https://api.figshare.com/v2/articles/{article_id}/files")),
-    simplifyVector = TRUE
-  )
+  files <-
+    content(
+      GET(glue("https://api.figshare.com/v2/articles/{article_id}/files")),
+      simplifyVector = TRUE
+    )
 
-download(files$download_url, destfile = files$name)
+  download(files$download_url, destfile = files$name)
+  message(glue("Downloaded: \n\t{files$name}\nto\n\t{getwd()}"))
+
+  return(files)
+}
+
+# get 2017 Helcom VMS data product
+files <- downloadFromFigshare("10.17895/ices.data.4684")
+
 
 # get shapefiles for 2016 from zip file
 unzip(files$name, list = TRUE)
@@ -56,4 +65,3 @@ unzip(
 # clean up
 unlink(shapes_fname)
 unlink(files$name)
-
