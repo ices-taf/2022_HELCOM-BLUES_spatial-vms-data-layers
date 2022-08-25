@@ -1,22 +1,20 @@
 # Request
 
 
-## Anonimity considerations
+## Anonymity considerations
 
-In order to protect the anonimity of fishing vessels the values of certain attributes are not provided
-directly in the case there are less than 3 fishing vessels present in that cell, and are instead given
-an value 'NA'.  In order to allow time series and maps to be created for these sensitive attributes three
+In order to protect the anonymity of fishing vessels the values of certain attributes are not provided directly (in the case there are less than 3 fishing vessels present in that cell) and are instead given
+a value of 'NA'.  In order to allow time series and maps to be created for these sensitive attributes three
 other values are provided for all cells, these are:
 
 * x_cat: a character description of a range in which the attribute value falls into
 * x_cat_low: the numeric lower bound of this category
 * x_cat_high: the numeric upper bound of this category
 
-where 'x' is the name of the attribute. The categories are calculated per year and are consistent accross years and quarters. THis
-can be thought of as provideding the colour grouping of a cell if plotted on a map, where the map scale is
-consistent accross years and quarters but with a seperate scale for each gear and attribute.  The scales
-or categories are calculated simply by splitting the range of the attribute values into 10 equally spaced
-bins, for example if the range of the data is from 5 to 25, the bins would be (5-7, 7-9, 9-11, ..., 23-25).
+where 'x' is the name of the attribute. The categories are calculated per year and are consistent across years and quarters. This
+can be thought of as providing the colour grouping of a cell if plotted on a map, where the map scale is
+consistent across years and quarters but with a separate scale for each gear and attribute.  
+The scales or categories are calculated simply by splitting the range of the attribute values into 10 equally spaced bins, for example if the range of the data is from 5 to 25, the bins would be (5-7, 7-9, 9-11, ..., 23-25).
 
 The attributes considered sensitive are:
 
@@ -51,9 +49,9 @@ The attributes considered sensitive are:
 
 * Effort in kW Fishinghours
 
-### Anonimity
+### Anonymity
 
-kW Fishinghours are subject to anonimity considerations.
+kW Fishinghours are subject to anonymity considerations.
 
 ## b.i. Intensity of mobile bottom contacting gears
 
@@ -98,11 +96,11 @@ Benthis Metiers
 * kW fishing hours
 * Fishing hours
 
-### Anonimity
+### Anonymity
 
-Surface and subsurface area impacted, surface and subsurface SAR are not subject to anonimity constraints.
+Surface and subsurface area impacted, surface and subsurface SAR are not subject to anonymity constraints.
 
-Total weight, Total value, kW fishing hours and Fishing hours are subject to anonimity considerations.
+Total weight, Total value, kW fishing hours and Fishing hours are subject to anonymity considerations.
 
 
 ## b. Iii Provide the footprint of the grid cells that contain 90% of the highest fishing intensity of total fishing effort in the region. The resulting area or footprint can be defined as the core fishing grounds (or the smallest area that comprises 90% of the total swept area).
@@ -149,18 +147,17 @@ max_fraction_fished
 
 ### Anonymity:
 
-max_fraction_fished is not subject to anonimity considerations.
+max_fraction_fished is not subject to anonymity considerations.
 
 ### details
 
-As data is provided to ICES at the c-square level, it is not possible to provide information at the sub c-sqaure level
-therefore only the maximum fraction fished can be provided.
+As data is provided to ICES at the c-square level, it is not possible to provide information at the sub c-square level therefore only the maximum fraction fished can be provided.
 
-There are methods for modelling the fraction fished investigated by the ICES WGSFD. In addition, plans are being developed to request the fraction of substrate trawled by csquare in future data calls.
+There are methods for modeling the fraction fished investigated by the ICES WGSFD. In addition, plans are being developed to request the fraction of substrate trawled by c-square in future data calls.
 
-## Notes on shapefile feild names
+## Notes on shapefile field names
 
-since shape files have a restriction that feild names can only be 10 characters long, the following appreviations have been made:
+since shape files have a restriction that field names can only be 10 characters long, the following abbreviations have been made:
 
  * sur = surface
  * subsur = subsurface
